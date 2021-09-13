@@ -1,0 +1,6 @@
+{
+    "name": "node-iot",
+    "description": "Node IOT docker",
+    "version": "0.0.1",
+    "private": true
+}

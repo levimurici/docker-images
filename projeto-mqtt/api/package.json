@@ -1,0 +1,17 @@
+{
+  "name": "nodejs-express-api",
+  "version": "1.0.0",
+  "description": "express api generíca",
+  "author": "dnd <github.com/levimurici>",
+  "license": "EU MERMO",
+  "main": "app.js",
+  "keywords": [
+    "nodejs",
+    "bootstrap",
+    "express"
+  ],
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^2.0.12"
+  }
+}
