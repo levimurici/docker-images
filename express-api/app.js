@@ -8,6 +8,7 @@ const PORT = 3000
 const HOST = '0.0.0.0';
 
 var relay1_control, relay2_control, relay3_control;
+var  data;
 
 router.use(bodyParser.json());
 
@@ -60,33 +61,19 @@ router.post('/alarm/push', function (req, res, next) {
     res.status(200).json({ status: true })
 });
 
+router.get('/station/pull', function (req, res, next) {
+    res.status(200).send(data);
+});
+
+router.post('/station/push', function (req, res, next) {
+    data = req.body
+    console.log(data);
+    res.status(200).json({ status: true })
+});
+
 app.use(express.static(path));
 app.use("/", router);
 
 app.listen(PORT, function () {
     console.log(`app listening on PORT ${PORT}`)
 });
-                                                                            
-// router.get("/",function(req,res){
-//   res.sendFile(path + "index.html");
-// });
-
-// router.get("/sharks",function(req,res){
-//   res.sendFile(path + "sharks.html");
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
