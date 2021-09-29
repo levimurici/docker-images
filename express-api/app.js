@@ -67,7 +67,7 @@ router.get('/station/pull', function (req, res, next) {
 
 router.post('/station/push', function (req, res, next) {
     data = req.body
-    console.log(data);
+    // console.log(data);
     res.status(200).json({ status: true })
 });
 
