@@ -1,2 +1,4 @@
 projetos-curso
 script
+*.sh
+projeto-mqtt
