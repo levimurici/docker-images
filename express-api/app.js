@@ -33,7 +33,7 @@ const dataAlarm = {
 }
 
 router.use(function (req,res,next) {
-    console.log("/" + req.method);
+    // console.log("/" + req.method);
     next();
 });
 
