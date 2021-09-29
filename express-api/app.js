@@ -57,7 +57,7 @@ router.post('/alarm/push', function (req, res, next) {
             }
         }
     }
-    console.log(req.body);
+    // console.log(req.body);
     res.status(200).json({ status: true })
 });
 
