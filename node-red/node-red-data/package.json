@@ -1,6 +1,9 @@
 {
-    "name": "node-iot",
-    "description": "Node IOT docker",
+    "name": "node-red-project",
+    "description": "A Node-RED Project",
     "version": "0.0.1",
-    "private": true
+    "private": true,
+    "dependencies": {
+        "node-red-contrib-influxdb": "~0.6.1"
+    }
 }
