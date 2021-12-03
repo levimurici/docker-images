@@ -2,7 +2,14 @@
     {
         "id": "1f17c67c7ea6aa67",
         "type": "tab",
-        "label": "alarmes",
+        "label": "post_data",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "ec2b6a22901dfe03",
+        "type": "tab",
+        "label": "get_data",
         "disabled": false,
         "info": ""
     },
@@ -17,7 +24,7 @@
         "id": "dcf414604905f363",
         "type": "mqtt-broker",
         "name": "",
-        "broker": "mqtt",
+        "broker": "192.168.1.16",
         "port": "1883",
         "tls": "",
         "clientid": "",
@@ -40,23 +47,38 @@
         "sessionExpiry": ""
     },
     {
-        "id": "ef2bec65.5d157",
-        "type": "ui_group",
-        "name": "control",
-        "tab": "",
-        "order": 1,
-        "disp": true,
-        "width": 6,
-        "collapse": false
+        "id": "1b3c63a4.c275cc",
+        "type": "mqtt-broker",
+        "name": "aedes:1883",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
     },
     {
         "id": "6cb52c32.2d24d4",
         "type": "ui_group",
         "name": "monitor",
-        "tab": "",
+        "tab": "391bb37912505109",
         "order": 1,
         "disp": true,
-        "width": 8,
+        "width": "8",
         "collapse": false
     },
     {
@@ -260,19 +282,10 @@
         "collapse": false
     },
     {
-        "id": "e30ae170c933c87f",
-        "type": "ui_tab",
-        "name": "xdk110",
-        "icon": "dashboard",
-        "order": 6,
-        "disabled": false,
-        "hidden": false
-    },
-    {
         "id": "1452aaedcbd7f359",
         "type": "ui_group",
         "name": "Readings",
-        "tab": "e30ae170c933c87f",
+        "tab": "",
         "order": 1,
         "disp": true,
         "width": "6",
@@ -303,7 +316,7 @@
         "rejectUnauthorized": false
     },
     {
-        "id": "dbafec56b86801bb",
+        "id": "b2474b4db0eb9982",
         "type": "ui_group",
         "name": "Group 2",
         "tab": "",
@@ -312,14 +325,11 @@
         "width": 6
     },
     {
-        "id": "f548841223aa4099",
-        "type": "ui_spacer",
-        "z": "1f17c67c7ea6aa67",
-        "name": "spacer",
-        "group": "1452aaedcbd7f359",
-        "order": 1,
-        "width": 6,
-        "height": 1
+        "id": "391bb37912505109",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
     },
     {
         "id": "d385b0b12460c568",
@@ -354,29 +364,9 @@
         "wires": [
             [
                 "44fa236e278c3eb8",
-                "44a2272d1b21b0a4",
-                "cb39fceaf274d577",
-                "2c90243ebef54612"
+                "44a2272d1b21b0a4"
             ]
         ]
-    },
-    {
-        "id": "15a2f66e5d650e39",
-        "type": "mqtt out",
-        "z": "1f17c67c7ea6aa67",
-        "name": "device2/relay",
-        "topic": "device1/relay",
-        "qos": "0",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "dcf414604905f363",
-        "x": 850,
-        "y": 220,
-        "wires": []
     },
     {
         "id": "44a2272d1b21b0a4",
@@ -399,7 +389,7 @@
         "id": "2687cd4acfa1a15f",
         "type": "comment",
         "z": "1f17c67c7ea6aa67",
-        "name": "Window1",
+        "name": "suricato-01",
         "info": "",
         "x": 160,
         "y": 40,
@@ -409,17 +399,17 @@
         "id": "44fa236e278c3eb8",
         "type": "http request",
         "z": "1f17c67c7ea6aa67",
-        "name": "alarm1/push",
+        "name": "suricato01-status-post",
         "method": "POST",
         "ret": "txt",
         "paytoqs": "ignore",
-        "url": "http://192.168.101.28:3000/alarm/push",
+        "url": "http://192.168.1.2:3000/mcu/alarm/dump/suricato01",
         "tls": "",
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 570,
-        "y": 160,
+        "x": 600,
+        "y": 140,
         "wires": [
             []
         ]
@@ -432,7 +422,7 @@
         "topic": "device1/xdk110",
         "qos": "2",
         "datatype": "auto",
-        "broker": "dcf414604905f363",
+        "broker": "1b3c63a4.c275cc",
         "nl": false,
         "rap": true,
         "rh": 0,
@@ -467,7 +457,7 @@
         "z": "f2c71d9fb85de873",
         "name": "",
         "group": "1452aaedcbd7f359",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
         "label": "tem-env",
@@ -509,7 +499,7 @@
         "type": "ui_text",
         "z": "f2c71d9fb85de873",
         "group": "1452aaedcbd7f359",
-        "order": 3,
+        "order": 2,
         "width": 0,
         "height": 0,
         "name": "",
@@ -525,7 +515,7 @@
         "type": "ui_text",
         "z": "f2c71d9fb85de873",
         "group": "1452aaedcbd7f359",
-        "order": 4,
+        "order": 3,
         "width": 0,
         "height": 0,
         "name": "",
@@ -541,7 +531,7 @@
         "type": "ui_text",
         "z": "f2c71d9fb85de873",
         "group": "1452aaedcbd7f359",
-        "order": 5,
+        "order": 4,
         "width": 0,
         "height": 0,
         "name": "",
@@ -568,8 +558,7 @@
                 "cd48e90971f837c8",
                 "6b9fb829b915b32c",
                 "9ba8a6051e9c34bf",
-                "85df04085618739d",
-                "aae7875f9296e10f"
+                "85df04085618739d"
             ]
         ]
     },
@@ -682,14 +671,14 @@
         ]
     },
     {
-        "id": "d89274e0becef811",
+        "id": "39c00eb5f41060c0",
         "type": "change",
-        "z": "1f17c67c7ea6aa67",
-        "name": "device1/relay",
+        "z": "ec2b6a22901dfe03",
+        "name": "suricato-01/alarm",
         "rules": [
             {
                 "t": "move",
-                "p": "payload.sensors[0][\"control\"]",
+                "p": "payload.alarms[\"suricato-01\"][\"control\"]",
                 "pt": "msg",
                 "to": "payload",
                 "tot": "msg"
@@ -700,23 +689,23 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 570,
-        "y": 220,
+        "x": 630,
+        "y": 120,
         "wires": [
             [
-                "15a2f66e5d650e39"
+                "53f4a2a639d0b075"
             ]
         ]
     },
     {
-        "id": "d97cca6e601f52b0",
+        "id": "5967cc9d7c334132",
         "type": "change",
-        "z": "1f17c67c7ea6aa67",
-        "name": "device2/relay",
+        "z": "ec2b6a22901dfe03",
+        "name": "suricato-02/alarm",
         "rules": [
             {
                 "t": "move",
-                "p": "payload.sensors[1][\"control\"]",
+                "p": "payload.alarms[\"suricato-02\"][\"control\"]",
                 "pt": "msg",
                 "to": "payload",
                 "tot": "msg"
@@ -727,82 +716,116 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 570,
-        "y": 260,
+        "x": 630,
+        "y": 160,
         "wires": [
             [
-                "f861bc8453cd04b8"
+                "fbd406aec3fae731"
             ]
         ]
     },
     {
-        "id": "a76ed447f2b1d714",
-        "type": "change",
-        "z": "1f17c67c7ea6aa67",
-        "name": "device3/relay",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload.sensors[2][\"control\"]",
-                "pt": "msg",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 570,
-        "y": 300,
-        "wires": [
-            [
-                "3667c1b347541d44"
-            ]
-        ]
-    },
-    {
-        "id": "f861bc8453cd04b8",
-        "type": "mqtt out",
-        "z": "1f17c67c7ea6aa67",
-        "name": "device3/relay",
-        "topic": "device2/relay",
-        "qos": "0",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "dcf414604905f363",
-        "x": 850,
-        "y": 260,
+        "id": "539c36f763b6d710",
+        "type": "debug",
+        "z": "ec2b6a22901dfe03",
+        "name": "Feedback1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 200,
         "wires": []
     },
     {
-        "id": "3667c1b347541d44",
-        "type": "mqtt out",
-        "z": "1f17c67c7ea6aa67",
-        "name": "device4/relay",
-        "topic": "device3/relay",
-        "qos": "0",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "dcf414604905f363",
-        "x": 850,
-        "y": 300,
-        "wires": []
+        "id": "c5a1c10ad74ebc0b",
+        "type": "json",
+        "z": "ec2b6a22901dfe03",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 390,
+        "y": 140,
+        "wires": [
+            [
+                "39c00eb5f41060c0",
+                "5967cc9d7c334132",
+                "539c36f763b6d710"
+            ]
+        ]
     },
     {
-        "id": "6b8c60525c562b98",
+        "id": "f875203bae4e54f3",
+        "type": "inject",
+        "z": "ec2b6a22901dfe03",
+        "name": "request",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 180,
+        "y": 80,
+        "wires": [
+            [
+                "6885d647720e3d0e"
+            ]
+        ]
+    },
+    {
+        "id": "34d233d7842e4665",
+        "type": "mqtt in",
+        "z": "1f17c67c7ea6aa67",
+        "name": "device2/alarm",
+        "topic": "device2/alarm",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "dcf414604905f363",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 170,
+        "y": 280,
+        "wires": [
+            [
+                "9460b1442a3a5e3a"
+            ]
+        ]
+    },
+    {
+        "id": "9460b1442a3a5e3a",
+        "type": "json",
+        "z": "1f17c67c7ea6aa67",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 370,
+        "y": 280,
+        "wires": [
+            [
+                "28faf5443a2a2d5a",
+                "76c3ec0a4d10e561"
+            ]
+        ]
+    },
+    {
+        "id": "76c3ec0a4d10e561",
         "type": "debug",
         "z": "1f17c67c7ea6aa67",
-        "name": "Feedback2",
+        "name": "Feedback1",
         "active": false,
         "tosidebar": true,
         "console": false,
@@ -812,180 +835,107 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 570,
-        "y": 340,
+        "y": 240,
         "wires": []
     },
     {
-        "id": "9664579c6fe7930f",
+        "id": "f1b4ec559f153eaf",
+        "type": "comment",
+        "z": "1f17c67c7ea6aa67",
+        "name": "suricato-02",
+        "info": "",
+        "x": 160,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "28faf5443a2a2d5a",
         "type": "http request",
         "z": "1f17c67c7ea6aa67",
-        "name": "relay-array/pull",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "http://192.168.101.28:3000/alarm/pull",
-        "tls": "",
-        "persist": true,
-        "proxy": "",
-        "authType": "",
-        "x": 160,
-        "y": 260,
-        "wires": [
-            [
-                "3388753ff3e0659c"
-            ]
-        ]
-    },
-    {
-        "id": "3388753ff3e0659c",
-        "type": "json",
-        "z": "1f17c67c7ea6aa67",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 370,
-        "y": 260,
-        "wires": [
-            [
-                "6b8c60525c562b98",
-                "d89274e0becef811",
-                "d97cca6e601f52b0",
-                "a76ed447f2b1d714"
-            ]
-        ]
-    },
-    {
-        "id": "61d273ee12c4c7d1",
-        "type": "inject",
-        "z": "1f17c67c7ea6aa67",
-        "name": "request",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "1",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "1",
-        "topic": "",
-        "payloadType": "date",
-        "x": 160,
-        "y": 200,
-        "wires": [
-            [
-                "9664579c6fe7930f"
-            ]
-        ]
-    },
-    {
-        "id": "cb39fceaf274d577",
-        "type": "change",
-        "z": "1f17c67c7ea6aa67",
-        "name": "relay-status",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload.sensors[0].status",
-                "pt": "msg",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 570,
-        "y": 80,
-        "wires": [
-            [
-                "46b579ff9e24dd93"
-            ]
-        ]
-    },
-    {
-        "id": "2c90243ebef54612",
-        "type": "change",
-        "z": "1f17c67c7ea6aa67",
-        "name": "chave-status",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload.sensors[1].status",
-                "pt": "msg",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 570,
-        "y": 120,
-        "wires": [
-            [
-                "a2a8d87d6eba3599"
-            ]
-        ]
-    },
-    {
-        "id": "46b579ff9e24dd93",
-        "type": "ui_text",
-        "z": "1f17c67c7ea6aa67",
-        "group": "1452aaedcbd7f359",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "relay-status",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "x": 810,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "a2a8d87d6eba3599",
-        "type": "ui_text",
-        "z": "1f17c67c7ea6aa67",
-        "group": "1452aaedcbd7f359",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "chave-status",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "x": 810,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "aae7875f9296e10f",
-        "type": "http request",
-        "z": "f2c71d9fb85de873",
-        "name": "station/push",
+        "name": "suricato02-status-post",
         "method": "POST",
         "ret": "txt",
         "paytoqs": "ignore",
-        "url": "http://192.168.101.28:3000/station/push",
+        "url": "http://192.168.1.2:3000/mcu/alarm/dump/suricato02",
         "tls": "",
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 470,
-        "y": 100,
+        "x": 600,
+        "y": 340,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "5506831d9bb2a32b",
+        "type": "debug",
+        "z": "ec2b6a22901dfe03",
+        "name": "Feedback2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 170,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "53f4a2a639d0b075",
+        "type": "ui_text",
+        "z": "ec2b6a22901dfe03",
+        "group": "6cb52c32.2d24d4",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "alarm1/status",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 860,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "fbd406aec3fae731",
+        "type": "ui_text",
+        "z": "ec2b6a22901dfe03",
+        "group": "6cb52c32.2d24d4",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "alarm2/status",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 860,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "6885d647720e3d0e",
+        "type": "http request",
+        "z": "ec2b6a22901dfe03",
+        "name": "suricato-alarms-get",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.1.2:3000/mcu/alarm/data-updated",
+        "tls": "",
+        "persist": true,
+        "proxy": "",
+        "authType": "",
+        "x": 190,
+        "y": 140,
+        "wires": [
+            [
+                "c5a1c10ad74ebc0b",
+                "5506831d9bb2a32b"
+            ]
         ]
     }
 ]
